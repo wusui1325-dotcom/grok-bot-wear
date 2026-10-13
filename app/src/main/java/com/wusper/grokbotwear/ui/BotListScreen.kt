@@ -11,7 +11,7 @@ import androidx.wear.compose.material.ListHeader
 import androidx.wear.compose.material.Text
 
 @Composable
-fun BotListScreen() {
+fun BotListScreen(onBotClick: (String) -> Unit) {
     // TODO: replace with real data from BotRepository
     val bots = listOf(
         "Grok 新" to "idle",
@@ -30,7 +30,7 @@ fun BotListScreen() {
         items(bots.size) { index ->
             val (name, status) = bots[index]
             Chip(
-                onClick = { /* navigate to conversation */ },
+                onClick = { onBotClick(name) },
                 label = { Text(name) },
                 secondaryLabel = { Text(status) },
                 modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp)
